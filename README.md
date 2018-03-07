@@ -1,3 +1,5 @@
+[![pub package](https://img.shields.io/pub/v/flutter_radial_menu.svg)](https://pub.dartlang.org/packages/flutter_radial_menu) 
+
 # flutter_radial_menu
 
 A radial menu widget for Flutter.
@@ -6,7 +8,7 @@ A radial menu widget for Flutter.
 
 ## Installation
 
-Install the latest version from pub.
+Install the latest version [from pub](https://pub.dartlang.org/packages/flutter_radial_menu#-installing-tab-).
 
 ## Quick Start
 

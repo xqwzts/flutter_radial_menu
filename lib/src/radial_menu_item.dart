@@ -20,8 +20,7 @@ class RadialMenuItem<T> extends StatelessWidget {
     this.backgroundColor,
     this.iconColor,
     // this.iconSize: 24.0,
-  })
-      : assert(child != null),
+  })  : assert(child != null),
         assert(size != null),
         super(key: key);
 

@@ -1,0 +1,13 @@
+name: flutter_radial_menu
+description: A simple animated radial menu widget for Flutter.
+version: 0.0.1
+author: Victor Choueiri <victor.oc@gmail.com>
+homepage: https://github.com/xqwzts/flutter_radial_menu
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

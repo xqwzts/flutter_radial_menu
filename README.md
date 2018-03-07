@@ -12,7 +12,8 @@ Install the latest version from pub.
 
 Import the package, create a `RadialMenu` and pass it your `RadialMenuItems`.
 
-![](screenshots/simple_example_code.png) ![](screenshots/simple_example.gif)
+
+<img src="https://raw.githubusercontent.com/xqwzts/flutter_radial_menu/master/screenshots/simple_example_code.png" width="550"> <img src="https://raw.githubusercontent.com/xqwzts/flutter_radial_menu/master/screenshots/simple_example.gif" width="300">
 
 ---
 

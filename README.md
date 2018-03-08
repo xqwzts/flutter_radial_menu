@@ -67,8 +67,8 @@ Take a look at the [demo](example/demo.dart) for a more elaborate example.
 
 ### RadialMenu
 
-| Parameter                 | Default                            | Description                                               |
-|---------------------------|------------------------------------|-----------------------------------------------------------|
+| Parameter                 | Default           | Description                                                                |
+|---------------------------|-------------------|----------------------------------------------------------------------------|
 | items                     | null              | The list of possible items to select from.                                 |
 | onSelected                | null              | Called when the user selects an item.                                      |
 | radius                    | 100.0             | The radius of the arc used to lay out the items and draw the progress bar. |

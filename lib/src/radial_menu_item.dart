@@ -15,7 +15,7 @@ class RadialMenuItem<T> extends StatelessWidget {
     Key key,
     @required this.child,
     this.value,
-    this.tooltip = 'tooltip',
+    this.tooltip,
     this.size = _defaultButtonSize,
     this.backgroundColor,
     this.iconColor,

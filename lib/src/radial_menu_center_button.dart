@@ -16,6 +16,7 @@ class RadialMenuCenterButton extends StatelessWidget {
   /// Called when the user presses this button.
   final VoidCallback onPressed;
 
+  final Icon customIcon;
   /// The opened/closed state of the menu.
   ///
   /// Determines which of [closedColor] or [openedColor] should be used as the
@@ -56,6 +57,7 @@ class RadialMenuCenterButton extends StatelessWidget {
     @required this.activateAnimationController,
     @required this.onPressed,
     @required this.isOpen,
+    this.customIcon,
     this.iconColor = Colors.black,
     this.closedColor = Colors.white,
     this.openedColor = Colors.grey,
@@ -81,7 +83,7 @@ class RadialMenuCenterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final AnimatedIcon animatedIcon = new AnimatedIcon(
       color: iconColor,
-      icon: AnimatedIcons.menu_close,
+      icon: customIcon != null? customIcon : AnimatedIcons.menu_close,
       progress: _progress,
     );
 

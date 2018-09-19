@@ -46,8 +46,8 @@ class RadialMenu<T> extends StatefulWidget {
     this.radius = 100.0,
     this.expandLeftOnly,
     this.customIcon,
-    this.menuAnimationDuration = const Duration(milliseconds: 1000),
-    this.progressAnimationDuration = const Duration(milliseconds: 1000),
+    this.menuAnimationDuration = const Duration(milliseconds: 200),
+    this.progressAnimationDuration = const Duration(milliseconds: 200),
   })  : assert(radius != null),
         assert(menuAnimationDuration != null),
         assert(progressAnimationDuration != null),
@@ -89,7 +89,7 @@ class RadialMenuState extends State<RadialMenu> with TickerProviderStateMixin {
   // and change this to the default: radialItemAngleCalculator.
   double calculateItemAngle(int index) {
     double modifier = 360.0;
-    widget.expandLeftOnly != null? modifier = -210.0 : 360.0;
+    widget.expandLeftOnly != null? modifier = -180.0 : 360.0;
     double _itemSpacing = modifier / widget.items.length;
     return _startAngle + index * _itemSpacing * _radiansPerDegree;
   }
@@ -187,7 +187,7 @@ class RadialMenuState extends State<RadialMenu> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = <Widget>[];
-
+  print(widget.customIcon);
     for (int i = 0; i < widget.items.length; i++) {
       if (_activeItemIndex != i) {
         children.add(_buildActionButton(i));
@@ -242,7 +242,7 @@ class _RadialMenuLayout extends MultiChildLayoutDelegate {
 
   @override
   void performLayout(Size size) {
-    center = new Offset(size.width / 2, size.height / 2);
+    center = new Offset(size.width - 40, size.height / 2);
 
     if (hasChild(menuButton)) {
       Size menuButtonSize;

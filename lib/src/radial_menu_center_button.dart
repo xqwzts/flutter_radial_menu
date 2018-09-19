@@ -81,17 +81,18 @@ class RadialMenuCenterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AnimatedIcon animatedIcon = new AnimatedIcon(
+    var icon;
+   icon = new AnimatedIcon(
       color: iconColor,
-      icon: customIcon != null? customIcon : AnimatedIcons.menu_close,
+      icon:  AnimatedIcons.menu_close,
       progress: _progress,
     );
-
+   //print(icon);
     final Widget child = new Container(
       width: size,
       height: size,
       child: new Center(
-        child: animatedIcon,
+        child: icon,
       ),
     );
 

@@ -15,7 +15,7 @@ typedef double ItemAngleCalculator(int index);
 
 /// A radial menu for selecting from a list of items.
 ///
-/// A radial menu lets the user select from a number of items. It displays a
+/// A radial menu RadialMenuCenterButtonlets the user select from a number of items. It displays a
 /// button that opens the menu, showing its items arranged in an arc. Selecting
 /// an item triggers the animation of a progress bar drawn at the specified
 /// [radius] around the central menu button.
@@ -44,8 +44,10 @@ class RadialMenu<T> extends StatefulWidget {
     @required this.items,
     @required this.onSelected,
     this.radius = 100.0,
-    this.menuAnimationDuration = const Duration(milliseconds: 1000),
-    this.progressAnimationDuration = const Duration(milliseconds: 1000),
+    this.expandLeftOnly,
+    this.customIcon,
+    this.menuAnimationDuration = const Duration(milliseconds: 200),
+    this.progressAnimationDuration = const Duration(milliseconds: 200),
   })  : assert(radius != null),
         assert(menuAnimationDuration != null),
         assert(progressAnimationDuration != null),
@@ -62,6 +64,7 @@ class RadialMenu<T> extends StatefulWidget {
   /// Defaults to 100.0.
   final double radius;
 
+  final Icon customIcon;
   /// Duration of the menu opening/closing animation.
   ///
   /// Defaults to 1000 milliseconds.
@@ -71,7 +74,7 @@ class RadialMenu<T> extends StatefulWidget {
   ///
   /// Defaults to 1000 milliseconds.
   final Duration progressAnimationDuration;
-
+  final  expandLeftOnly;
   @override
   RadialMenuState createState() => new RadialMenuState();
 }
@@ -85,7 +88,9 @@ class RadialMenuState extends State<RadialMenu> with TickerProviderStateMixin {
   // todo: xqwzts: allow users to pass in their own calculator as a param.
   // and change this to the default: radialItemAngleCalculator.
   double calculateItemAngle(int index) {
-    double _itemSpacing = 360.0 / widget.items.length;
+    double modifier = 360.0;
+    widget.expandLeftOnly != null? modifier = -180.0 : 360.0;
+    double _itemSpacing = modifier / widget.items.length;
     return _startAngle + index * _itemSpacing * _radiansPerDegree;
   }
 
@@ -170,6 +175,7 @@ class RadialMenuState extends State<RadialMenu> with TickerProviderStateMixin {
     return new LayoutId(
       id: _RadialMenuLayout.menuButton,
       child: new RadialMenuCenterButton(
+        customIcon: widget.customIcon != null? widget.customIcon : null,
         openCloseAnimationController: _menuAnimationController.view,
         activateAnimationController: _progressAnimationController.view,
         isOpen: _isOpen,
@@ -181,7 +187,7 @@ class RadialMenuState extends State<RadialMenu> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = <Widget>[];
-
+  print(widget.customIcon);
     for (int i = 0; i < widget.items.length; i++) {
       if (_activeItemIndex != i) {
         children.add(_buildActionButton(i));
@@ -236,7 +242,7 @@ class _RadialMenuLayout extends MultiChildLayoutDelegate {
 
   @override
   void performLayout(Size size) {
-    center = new Offset(size.width / 2, size.height / 2);
+    center = new Offset(size.width - 40, size.height / 2);
 
     if (hasChild(menuButton)) {
       Size menuButtonSize;

@@ -65,7 +65,7 @@ void main() {
     ),
   ];
 
-  void _onItemSelected(MenuOptions value) {
+  void _onItemSelected(Object value) {
     print(value);
   }
 

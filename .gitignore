@@ -8,3 +8,4 @@ packages
 .vscode/
 .history/
 ios/
+.dart_tool/
